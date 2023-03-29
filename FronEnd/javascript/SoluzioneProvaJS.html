@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluzione Formativa</title>
+</head>
+<body>
+    
+    <main id="idMainContent">
+        <!-- <label for="txtImmagine01"></label>
+            <input type="text" name="txtImmagine01" id="txtImmagine01">
+        <br/>
+        <label for="txtImmagine02"></label>
+            <input type="text" name="txtImmagine02" id="txtImmagine02">
+        <br/>
+        <div id="IdImg">
+            <img src="img\chopper.jpg" alt="tonytonychopper" width="300" height="400" id="idImmagine01">
+            <img src="img\download.jpg" alt="nacapra" width="300" height="400" id="idImmagine02">
+        </div>
+        <input type="button" value="Caricamento Immagini" onclick="caricaImmagini()">
+        <input type="button" value="Inverti Posizione" onclick="invertiImmagini()"> -->
+    
+    </main>
+    <script>
+        var strPaginaIniziale = '<label for="txtImmagine01"></label>';
+        strPaginaIniziale +=    '    <input type="text" name="txtImmagine01" id="txtImmagine01" placeholder="chopper.jpg">';
+        strPaginaIniziale +=    '<br/>';
+        strPaginaIniziale +=    '<label for="txtImmagine02"></label>';
+        strPaginaIniziale +=    '    <input type="text" name="txtImmagine02" id="txtImmagine02" placeholder="download.jpg">';
+        strPaginaIniziale +=    '<br/>';
+        strPaginaIniziale +=    '<div id="idImmagini">';
+        // strPaginaIniziale +=    '    <img src="img\chopper.jpg" alt="tonytonychopper" width="300" height="400" id="idImmagine01">';
+        // strPaginaIniziale +=    '    <img src="img\download.jpg" alt="nacapra" width="300" height="400" id="idImmagine02">';
+        strPaginaIniziale +=    '</div>';
+        strPaginaIniziale +=    '<input type="button" value="Caricamento Immagini" onclick="caricaImmagini()">';
+        strPaginaIniziale +=    '<input type="button" value="Inverti Posizione" onclick="invertiImmaginiCopia()">';
+        document.getElementById("idMainContent").innerHTML = strPaginaIniziale;
+
+        var objimmagine01 = document.getElementById("txtImmagine01");
+        var objimmagine02 = document.getElementById("txtImmagine02");
+
+        // console.log(pathimmagine01);
+        // console.log(pathimmagine02);
+
+        // function caricaImmagini () {
+        //     console.log("immagine01" + objimmagine01.value);
+        //     console.log("immagine02" + objimmagine02.value);
+        //     var strImmagini = '<img src="../img/'+ objimmagine01.value +'" alt="tonytonychopper" width="300" height="400" id="idImmagine01">';
+        //     strImmagini +=    '<img src="../img/'+ objimmagine02.value +'" alt="nacapra" width="300" height="400" id="idImmagine02">';
+        //     var strImmagini = '<img src="" alt="tonytonychopper" width="300" height="400" id="idImmagine01">';
+        //     strImmagini +=    '<img src="" alt="nacapra" width="300" height="400" id="idImmagine02">';
+        //     document.getElementById("idImmagini").innerHTML = strImmagini;
+        //     document.getElementById("idImmagine01").src = '../img/' + objimmagine01.value;
+        //     document.getElementById("idImmagine02").src = '../img/' + objimmagine02.value;
+           
+        //}
+        // function invertiImmagini () {
+        //     //console.log("inverti immagine");
+        //     var temp = objimmagine01;
+        //     objimmagine01 = objimmagine02;
+        //     objimmagine02 = temp;
+        //     var strImmagini = '<img src="../img/'+ objimmagine01.value +'" alt="tonytonychopper" width="300" height="400" id="idImmagine01">';
+        //     strImmagini +=    '<img src="../img/'+ objimmagine02.value +'" alt="nacapra" width="300" height="400" id="idImmagine02">';
+        //     document.getElementById("idImmagini").innerHTML = strImmagini;
+        // }
+        // function invertiImmaginiCopia () {
+        //     //console.log("inverti immagine");
+        //     var objimmagine01Copia = objimmagine01.value;
+        //     var objimmagine02Copia = objimmagine02.value;
+
+
+        //     var temp = objimmagine01Copia;
+        //     objimmagine01Copia = objimmagine02Copia;
+        //     objimmagine02Copia = temp;
+        //     var strImmagini = '<img src="../img/'+ objimmagine01Copia +'" alt="tonytonychopper" width="300" height="400" id="idImmagine01">';
+        //     strImmagini +=    '<img src="../img/'+ objimmagine02Copia +'" alt="nacapra" width="300" height="400" id="idImmagine02">';
+        //     document.getElementById("idImmagini").innerHTML = strImmagini;
+        //}
+        function caricaImmaginiNew(){
+            var txtImmagine01 = document.getElementById("txtImmagine01").value;
+            var txtImmagine02 = document.getElementById("txtImmagine02").value;
+            var strImmagini = '<img src="../img/'+ txtImmagine01 +'" alt="tonytonychopper" width="300" height="400" id="idImmagine01">';
+            strImmagini +=    '<img src="../img/'+ txtImmagine02 +'" alt="nacapra" width="300" height="400" id="idImmagine02">';
+            document.getElementById("idImmagini").innerHTML = strImmagini;
+        }
+        function invertiImmaginiNew(){
+            var immagine01 = document.getElementById("idImmagine01");
+            var immagine02 = document.getElementById("idImmagine02");
+            var temp = immagine01.src;
+            immagine01.src = immagine02.src;
+            immagine02.src = temp;
+        }
+    </script>
+</body>
+</html>

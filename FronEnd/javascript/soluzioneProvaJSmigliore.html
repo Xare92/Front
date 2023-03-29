@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluzione Finale</title>
+</head>
+<body>
+    <main id="idMainContent">
+
+    </main>
+    <footer>
+        <p id="idData">  
+
+        </p>
+        <p id="idarray">
+            
+        </p>
+        <p id="idarraynumeri">
+
+        </p>
+    </footer>
+    <script>
+        var strPaginaIniziale = '<label for="txtImmagine01"></label>';
+        strPaginaIniziale +=    '    <input type="text" name="txtImmagine01" id="txtImmagine01" placeholder="chopper.jpg">';
+        strPaginaIniziale +=    '<br/>';
+        strPaginaIniziale +=    '<label for="txtImmagine02"></label>';
+        strPaginaIniziale +=    '    <input type="text" name="txtImmagine02" id="txtImmagine02" placeholder="download.jpg">';
+        strPaginaIniziale +=    '<br/>';
+        strPaginaIniziale +=    '<div id="idImmagini">';
+        // strPaginaIniziale +=    '    <img src="img\chopper.jpg" alt="tonytonychopper" width="300" height="400" id="idImmagine01">';
+        // strPaginaIniziale +=    '    <img src="img\download.jpg" alt="nacapra" width="300" height="400" id="idImmagine02">';
+        strPaginaIniziale +=    '</div>';
+        strPaginaIniziale +=    '<input type="button" value="Caricamento Immagini" onclick="caricaImmagini()">';
+        strPaginaIniziale +=    '<input type="button" value="Inverti Posizione" onclick="invertiImmagini()">';
+        document.getElementById("idMainContent").innerHTML = strPaginaIniziale;
+        //impostazione data nel footer
+        var data = document.getElementById("idData");
+        data.innerHTML = new Date();
+        //impostazione di un array
+        var giorniSettimana = new Array("Lunedi","Martedi","Mercoledi","Giovedi","Venerdi","Sabato","Domenica")
+        var array = document.getElementById("idarray");
+        array.innerHTML = giorniSettimana;
+        var numeri = [1,2,3,4,5,6,7,8,9,0];
+        var arraynumeri = document.getElementById("idarraynumeri");
+        arraynumeri.innerHTML = numeri;
+        numeri[0] = 567;
+        numeri[1] = 890;
+        arraynumeri.innerHTML = "[" + numeri +"]" + "di lunghezza" + numeri.length + "ultimo elemento" + numeri[numeri.length-1];
+
+
+        function caricaImmagini(){
+            var txtImmagine01 = document.getElementById("txtImmagine01").value;
+            var txtImmagine02 = document.getElementById("txtImmagine02").value;
+            var strImmagini = '<img src="../img/'+ txtImmagine01 +'" alt="tonytonychopper" width="300" height="400" id="idImmagine01">';
+            strImmagini +=    '<img src="../img/'+ txtImmagine02 +'" alt="nacapra" width="300" height="400" id="idImmagine02">';
+            document.getElementById("idImmagini").innerHTML = strImmagini;
+        }
+        function invertiImmagini(){
+            var immagine01 = document.getElementById("idImmagine01");
+            var immagine02 = document.getElementById("idImmagine02");
+            var temp = immagine01.src;
+            immagine01.src = immagine02.src;
+            immagine02.src = temp;
+        }
+        //recupera parte operatori unari dalle slides.
+    </script>
+</body>
+</html>

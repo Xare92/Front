@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form" name="form-name" action="" method="post">
+        <p>Nome</p>
+        <input type="text" name="nome" id="form-nome">
+        <p>Cognome</p>
+        <input type="text" name="cognome" id="form-cognome">
+        <p>Password</p>
+        <input required type="password" name="password" id="form-password">
+        <p>Et&agrave;</p>
+        <input type="number" name="eta" id="form-eta">
+        <br>
+        <br>
+        <p>Sesso:</p>
+        <br>
+        <input type="radio" name="sesso" id="form-radio-M" value="M" >
+        <p>M</p>
+        <input type="radio" name="sesso" id="form-radio-F" value="F">
+        <p>F</p>
+        <br>
+        <br>
+        <p>Titolo studio:</p>
+        <br>
+        <input type="radio" name="titolo-studio" id="form-titolostudio-diploma">
+        <p>Diploma</p>
+        <input type="radio" name="titolo-studio" id="form-titolostudio-laureatriennale">
+        <p>Laurea Triennale</p>
+        <input type="radio" name="titolo-studio" id="form-titolostudio-laureamagistrale">
+        <p>Laurea Magistrale</p>
+        <br>
+        <br>
+        <p>Accetto condizioni privacy</p>
+        <input type="checkbox" name="privacy" id="form-privacy">
+        <br>
+        <br>
+        <p>Servizio richiesto</p>
+        <select name="servizio" id="form-servizio">
+            <option value="void" selected></option>
+            <option value="S1">Servizio 01</option>
+            <option value="S2">Servizio 02</option>
+            <option value="S3">Servizio 03</option>
+        </select>
+        <br>
+        <br>
+        <p>Conferma Dati</p>
+        <input type="button" value="Annulla" id="form-btn-annulla" name="Annulla">
+        <input type="button" value="Conferma" id="form-btn-conferma" name="Conferma">
+    </form>
+</body>
+</html>
