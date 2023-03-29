@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluzione Formativa</title>
+</head>
+<body onload="caricamentoPaginaIniziale()">
+    
+    <main id="idMainContent">
+    
+    </main>
+    <script>
+    function caricamentoPaginaIniziale() {
+        var strPaginaIniziale = '<label for="txtImmagine01"></label>';
+        strPaginaIniziale +=    '    <input type="text" name="txtImmagine01" id="txtImmagine01" onchange="validazioneCampi()" placeholder="chopper.jpg">';
+        strPaginaIniziale +=    '<br/>';
+        strPaginaIniziale +=    '<label for="txtImmagine02"></label>';
+        strPaginaIniziale +=    '    <input type="text" name="txtImmagine02" id="txtImmagine02" onchange="validazioneCampi()" placeholder="download.jpg">';
+        strPaginaIniziale +=    '<br/>';
+        strPaginaIniziale +=    '<div id="idImmagini">';
+        strPaginaIniziale +=    '</div>';
+        strPaginaIniziale +=    '<input id="carimg" type="button" value="Caricamento Immagini" onclick="caricaImmagini()" disabled>';
+        strPaginaIniziale +=    '<input id="swtimg" type="button" value="Inverti Posizione" onclick="invertiImmagini()" disabled>';
+        document.getElementById("idMainContent").innerHTML = strPaginaIniziale;
+    }
+
+    function validazioneCampi() {
+        var txtImmagine01 = document.getElementById("txtImmagine01").value;
+        var txtImmagine02 = document.getElementById("txtImmagine02").value;
+        var btnCaricamentoImg = document.getElementById("carimg");
+        if (txtImmagine01 != "" && txtImmagine02 !="") {
+           btnCaricamentoImg.disabled = false; 
+        } else {
+            btnCaricamentoImg.disabled = true;
+        }
+    }
+    function attivbtnswitch() {
+        var btnSwitchImg = document.getElementById("swtimg");
+        btnSwitchImg.disabled = false;
+    }
+        
+    function caricaImmagini(){
+        var txtImmagine01 = document.getElementById("txtImmagine01").value;
+        var txtImmagine02 = document.getElementById("txtImmagine02").value;
+        var strImmagini = '<img src="../img/'+ txtImmagine01 +'" alt="tonytonychopper" width="300" height="400" id="idImmagine01">';
+        strImmagini +=    '<img src="../img/'+ txtImmagine02 +'" alt="nacapra" width="300" height="400" id="idImmagine02">';
+        document.getElementById("idImmagini").innerHTML = strImmagini;
+        attivbtnswitch();
+    }
+    function invertiImmagini(){
+        var immagine01 = document.getElementById("idImmagine01");
+        var immagine02 = document.getElementById("idImmagine02");
+        var temp = immagine01.src;
+        immagine01.src = immagine02.src;
+        immagine02.src = temp;
+    }
+    </script>
+</body>
+</html>
