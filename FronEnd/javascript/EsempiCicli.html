@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esempi Cicli</title>
+</head>
+<body>
+    <script>
+        var myArray = ["Antonio", "Melchiorre", "Astrubale","Vergingetorige"]
+        // console.log(myArray[0]);
+        // console.log(myArray[1]);
+        // console.log(myArray[2]);
+        // console.log(myArray[3]);
+        //Qui su sarebbe un istruzione ripetuta 4 volte per poter leggere tutti i campi posso fare la stessa cosa
+        //con un ciclo in questo modo
+        for(var i = 0; i < myArray.length;i++){ //scrivere i oppure index è la stessa cosa.
+            console.log(myArray[i]);
+            console.log(i);
+        } 
+        //IMPORTANTE: al posto di var posso usare let, let fa si che quando utilizzato la variabile utilizzata per il ciclo, finito
+        //quest'ultimo sparisce, quindi la posso riutilizzare nei blocchi successivi(con var non potrei riutilizzare "i")
+
+        /*
+        for(var i = myArray.length -1; i > 0;i--){
+            console.log(myArray[i]);
+            console.log(i);
+        }
+        */
+        //questo qui è lo stesso ciclo fatto al contrario, in entrambi i casi se volessi prendere solo gli elm pari
+        // metterei al posto di ++ o --, i=+2 o i=-2
+
+        //trovare elemento "Astrubale" e indicare posizione
+        //Caso1
+        for (var i = 0; myArray[i] != "Astrubale"; ++i);
+        console.log("Indice di Astrubale primo caso:" +i);
+        
+        //caso2
+        var indiceDiAstrubale = null;
+        for (var i=0; myArray[i] != "Astrubale"; i++)
+            indiceDiAstrubale = i;
+        console.log("Indice di Astrubale secondo caso:" + i);
+        
+        //caso3
+        for (let i=0; i < myArray.length; i++){
+            if(myArray[i] == "Astrubale"){
+                indiceDiAstrubale = i;
+            } 
+        }
+        console.log("Indice di Astrubale terzo caso:" +indiceDiAstrubale);
+
+         //caso4
+         for (let i=0; i < myArray.length; i++){
+            if(myArray[i] == "Astrubale"){
+                indiceDiAstrubale = i;
+                break;
+            } 
+        }
+        console.log("Indice di Astrubale quarto caso:" +indiceDiAstrubale);
+
+        //Ciclo WHILE
+        let j = 0; //posso usare anche var, quando uso let lo devo mettere sempre prima del ciclo altrimenti non funge
+        while (j < myArray.length) { //condition è la condizione di permanenza
+            console.log(myArray[j]); // sta roba qui può esseere scritta anche compressa come console.log(myArray[j++]);          
+            j++; // andando a omettere quest'ultima stringa.
+        }
+
+        //ricerca di un elemento con While
+        let k = 0;
+        while (myArray[k] != "Astrubale") {
+            k++;
+        }
+        console.log("Indice di Astrubale:" +k);
+        //se non ci fosse l'elemento che sto cercando loopa all'infinito, quindi se carico la pagine mi accorgo che in alto
+        //a sx nella tab della scheda c'è il simbolo di caricamento e la pagina rimane vuota.
+
+        //do-while Fa prima un giro prima di entrare nella condizione
+        let jj = 0;
+        do {
+            console.log(myArray[jj++]);
+        } while (jj < myArray.length);
+
+        //ricerca con do-while
+        jj = 0;
+        do {
+         //jj++; lo devo impostare così con il jj non qui altrimenti nella ricerca della variabile non mi leggerebbe il primo
+         //elemento che si trova in posizione 0. Questo perché parte subito il loop e inizia a leggere dall seconda posizione 
+         //ovvero la 1.
+        } while (myArray[jj++] != "Astrubale");
+        console.log("indice di Astrubale:" + [jj-1]); //posso anche metter al posto di + [jj-1], + (jj-1).toString()
+        // .toString() converte in stringa un oggetto esempio nel ciclo while se metto [jj-1].toString(), diventa stringa.
+
+    </script>
+</body>
+</html>
