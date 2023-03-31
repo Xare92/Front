@@ -11,28 +11,56 @@
         <div id="idListaNomi">
 
         </div>
+        <div id="idListaInv">
+
+        </div>
     </main>
     <script>
         function paginainiziale(){
             let strPaginaIniziale = '<label for="intestaz">Elenco</label>';
             strPaginaIniziale +=    '<br>';
             strPaginaIniziale +=    '<div id="idListaNomi">';
+            strPaginaIniziale +=    '</div>';    
+            strPaginaIniziale +=    '<div id="idListaInv">';
             strPaginaIniziale +=    '</div>';
             strPaginaIniziale +=    '<br>';
             strPaginaIniziale +=    '<input id="open" type="button" value="Apri Elenco" onclick="aprielenco()">';
-            document.getElementById("idMainContent").innerHTML = strPaginaIniziale;
+            document.getElementById("idMainContent").innerHTML = strPaginaIniziale; 
         }
+   
         function aprielenco(){
             //console.log("aprielenco");
             let nomiArray = ["Antonio", "Francesco", "Alessio", "Mattia"];
+            let nomiArrayInv = [];
+
+            for (let i = 0; i < nomiArray.length; i++) {
+                nomiArrayInv[nomiArray.length-1-i] = nomiArray[i];
+                
+            }
+            // console.log(nomiArray);
+            // console.log(nomiArrayInv);
+
+
+
             let divListaNomi = document.getElementById("idListaNomi");
             let strItems = "";
+            let strItemsdue = "";
             for (let i = 0; i < nomiArray.length; i++) {
-                strItems += '<p>' + (i+1).toString() + ' - ' + nomiArray[i] + '</p>' + '<br>';
+                strItems += '<p>' + (i+1).toString() + ' - ' + nomiArray[i] + '</p>';
+                strItemsdue += '<p>' + (nomiArray.length-i).toString() + ' - ' + nomiArray[nomiArray.length-1-i] + '</p>';
+
             }
-            divListaNomi.innerHTML = strItems
+            divListaNomi.innerHTML = strItems + strItemsdue
+
+            let divListaNomivar = document.getElementById("idListaInv");
+            let strItemsvar = "";
+            for (let i = 0; i < nomiArrayInv.length; i++) {
+                strItemsvar += '<p>' + (nomiArrayInv.length-i).toString() + ' - ' + nomiArrayInv[i] + '</p>';
+            }
+            divListaNomivar.innerHTML = strItemsvar
             
         }
+      
     </script>
 </body>
 </html>
