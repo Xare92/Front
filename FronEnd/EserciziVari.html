@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passaggio parametri funzione</title>
+</head>
+<body>
+    <span id="idArray"></span>
+    <input type="button" value="Calcola" onclick="calcola(100)"><br>
+    <input type="button" value="Calcola Array" onclick="calcolaArray(100)"><br>
+    <input type="button" value="Estrai Pari da Array" onclick="EstraiDaArray()"><br>
+    <input type="button" value="Array solo numeri pari" onclick="getnumeripariarray()"><br>
+    <input type="button" value="stampa solo numeri pari" onclick="getnumeripari()"><br>
+    <span id="idOperazione"></span> <br>
+    <span id="idArrayPari"></span>
+    <script>
+        function Calcola(){
+            let valore01 = 10;
+            let valore02 = 20;
+            let operazione = '';
+            //let totalizzatore = somma(valore01,valore02);
+            //console.log("valore calcolato di somma: " + somma(valore01,valore02).toString());
+            //totalizzatore = moltiplica(valore01,valore02);
+            //console.log("valore calcolato di moltiplica: " + moltiplica(valore01,valore02).toString());
+            let spanoperazione = document.getElementById("idOperazione");
+            operazione ='+';
+            spanoperazione.innerHTML = " operazione eseguita: " + operazione + " risultato: " + operazionimatematiche(operazione,valore01,valore02).toString();
+            console.log(spanoperazione);
+            // qui sopra posso anche scrivere nei 2 console.log al posto di moltiplica(blabla).toString e somma.(blabla).toString
+            // totalizzatore.toString, e devo togliere per farlo funzionare dal commento let totalizzatore = somma(valore01,valore02)
+        }
+        function somma(par01,par02){
+            par01;
+            par02;
+            return par01+par02;
+        }
+        function moltiplica(par01,par02){
+            return par01*par02;
+        }
+        function operazionimatematiche(operazione,par01,par02){
+        let valoreCalcolato = 0;
+        switch (operazione){
+            case '*':
+                valoreCalcolato = moltiplica(par01*par02);
+                break;
+            case '+':
+                valoreCalcolato = somma(par01+par02);
+                break;
+            case '-':
+                valoreCalcolato = par01-par02;
+                break;
+            case '/':
+                if(par02!=0)
+                    valoreCalcolato = par01/par02;
+                else 
+                    valoreCalcolato = "Errore"
+                break;
+            default:
+                break;
+        }
+        return valoreCalcolato;
+    }
+    function sommaOffsetArray(array,offset){
+        console.log("array dentro funzione somma: "+ array);
+        for (let i = 0; i < array.length; i++) {
+            array[i] +=offset;            
+        }   
+        console.log("array dopo operazione somma: "+ array);     
+    }
+    function EstraiDaArray(){
+        let myArray = [10,20,30,40,50];
+        let myArrayPari = estraiElementiPari(myArray);
+        let spanArrayPari = document.getElementById("idArrayPari");
+        spanArrayPari.innerHTML = myArrayPari;
+    }
+    function estraiElementiPari(array){
+        let arrayPari = [];
+        let j=0;
+        for (let i = 0; i < array.length; i+=2) {
+            arrayPari[j++] = array[i];              
+        }
+        return arrayPari;
+
+    }
+    function calcolaArray(offset){
+        let myArray = [10,20,30,40,50];
+        sommaOffsetArray(myArray,offset);
+        let spanArray = document.getElementById("idArray");
+        spanArray.innerHTML = myArray;
+
+        //ESERCITAZIONE PER CASA DA QUI IN GIU
+    //ESERCIZIO: 1) Stampare i numeri pari, e non solo quelli di posizione pari
+    //2) funzione generatrice di TAG. Cioè una funzione che avviandola crea un tag html con i suoi parametri, e che vada a video.
+    //3) provare a creare da codice una tabella di n righe e n colonne, con 2 elementi che dicono numero colonne e numero righe.
+    //4) riprovare il bottone di cancellazione.
+    //5) Filtro da lista immagini (come il control F su chrome. La lista deve essere quella dello scorso esecizio dove mettevi la foto,
+    // e lui te l'aggiungeva in una lista -> vedi Correz_Eserc_WE.html)
+
+    }
+    function getnumeripariarray() {
+        let array = [1, 2, 3, 4, 5, 6];
+        let arraypari = [];
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                console.log(array[i]); 
+                arraypari.push(array[i]);
+                document.writeln(array[i] + "<br>");
+                console.log(arraypari);
+            }
+        }
+    }
+    function getnumeripari() {
+        let array = [1, 2, 3, 4, 5, 6];
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                document.writeln(array[i] + "<br />");
+            }
+        }
+    }
+    // 2
+    function paragrafo(contenuto){
+        contenuto = "<p>" + contenuto;
+        contenuto += "</p>";
+        console.log(contenuto);
+        return contenuto;
+    }
+
+    function immagine(contenuto){
+        contenuto = '<img src="'+contenuto+'" alt="">';
+        console.log(contenuto);
+        return contenuto;
+    }
+
+    function bottoncino(contenuto){
+        contenuto = '<button onclick="getnumeripari()">' +contenuto;
+        contenuto += "</button>";
+        console.log(contenuto);
+        return contenuto;
+    }
+    //ESERCIZIO 3
+    
+
+
+
+
+
+
+    </script>
+
+    
+</body>
+</html>
