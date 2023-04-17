@@ -1,0 +1,32 @@
+body{
+    background-color: rgb(226, 245, 249);
+}
+label{
+    font-family: fantasy;
+    font-size: 20px;
+}
+input[type=button]{
+    border-color: black;
+    background-color: rgb(173, 255, 168);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: underline;
+    display: inline-block;
+    font-family: fantasy;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+input[type=text]{
+    text-align: center;
+    font-family: fantasy;
+}
+table {
+    font-family: fantasy;
+    border-collapse: collapse;
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #bf0264;
+    color: rgb(0, 0, 0);
+}
